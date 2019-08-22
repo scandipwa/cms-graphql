@@ -10,6 +10,22 @@
 
 namespace ScandiPWA\CmsGraphQl\Model\Template;
 
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\App\State;
+use Magento\Framework\Escaper;
+use Magento\Framework\Stdlib\StringUtils;
+use Magento\Framework\UrlInterface;
+use Magento\Framework\View\Asset\Repository;
+use Magento\Framework\View\LayoutFactory;
+use Magento\Framework\View\LayoutInterface;
+use Magento\Store\Model\StoreManagerInterface;
+use Magento\Variable\Model\Source\Variables;
+use Magento\Variable\Model\VariableFactory;
+use Magento\Widget\Block\BlockInterface;
+use Magento\Widget\Model\Widget;
+use Pelago\Emogrifier;
+use Psr\Log\LoggerInterface;
+
 /**
  * Class FilterEmulate
  * @package ScandiPWA\CmsGraphQl\Model\Template
@@ -23,7 +39,38 @@ class FilterEmulate extends \Magento\Widget\Model\Template\FilterEmulate
      *
      * @var string[]
      */
-    public static $widgetParamsWhitelist = ['type'];
+    public $widgetParamsWhitelist;
+    /**
+     * Array of objects that will parsed to custom widget syntax
+     *
+     * @var object[]
+     */
+    public $availableFilters;
+
+    public function __construct(
+        StringUtils $string,
+        LoggerInterface $logger,
+        Escaper $escaper,
+        Repository $assetRepo,
+        ScopeConfigInterface $scopeConfig,
+        VariableFactory $coreVariableFactory,
+        StoreManagerInterface $storeManager,
+        LayoutInterface $layout,
+        LayoutFactory $layoutFactory,
+        State $appState,
+        UrlInterface $urlModel,
+        Emogrifier $emogrifier,
+        Variables $configVariables,
+        \Magento\Widget\Model\ResourceModel\Widget $widgetResource,
+        Widget $widget,
+        array $availableFilters,
+        array $widgetParamsWhitelist
+    )
+    {
+        parent::__construct($string, $logger, $escaper, $assetRepo, $scopeConfig, $coreVariableFactory, $storeManager, $layout, $layoutFactory, $appState, $urlModel, $emogrifier, $configVariables, $widgetResource, $widget);
+        $this->availableFilters = $availableFilters;
+        $this->widgetParamsWhitelist = $widgetParamsWhitelist;
+    }
 
     /**
      * General method for generate widget
@@ -62,14 +109,13 @@ class FilterEmulate extends \Magento\Widget\Model\Template\FilterEmulate
             return '';
         }
 
-        // If widget is not CmsBlock let frontend handle it
-        if ($params['type'] !== 'Magento\Cms\Block\Widget\Block') {
-            return $this->widgetToHtml($params);
+        if ($widgetName = array_search($params['type'], $this->availableFilters)) {
+            return $this->widgetToHtml($params, $widgetName);
         }
 
         // define widget block and check the type is instance of Widget Interface
         $widget = $this->_layout->createBlock($type, $name, ['data' => $params]);
-        if (!$widget instanceof \Magento\Widget\Block\BlockInterface) {
+        if (!$widget instanceof BlockInterface) {
             return '';
         }
 
@@ -80,15 +126,17 @@ class FilterEmulate extends \Magento\Widget\Model\Template\FilterEmulate
      * Generates widget html-like instructions
      *
      * @param string[] $params
+     * @param string $widgetName
      * @return string
      */
-    public function widgetToHtml($params)
+    public function widgetToHtml($params, $widgetName)
     {
         unset($params['template']);
+        $params['type'] = $widgetName;
 
         $paramsList = [];
         foreach ($params as $key => $value) {
-            if (!in_array($key, FilterEmulate::$widgetParamsWhitelist)) {
+            if (!in_array($key, $this->widgetParamsWhitelist)) {
                 $value = $this->_escaper->escapeHtmlAttr($value);
             }
 

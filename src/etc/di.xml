@@ -1,5 +1,16 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilterEmulate" type="ScandiPWA\CmsGraphQl\Model\Template\FilterEmulate">
+        <arguments>
+            <argument name="availableFilters" xsi:type="array">
+                <item name="TestWidget" xsi:type="string">Magento\Cms\Block\Widget\Page\Link</item>
+            </argument>
+            <argument name="widgetParamsWhitelist" xsi:type="array">
+                <item name="type" xsi:type="string">type</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
     <preference for="Magento\CmsGraphQl\Model\Resolver\Page" type="ScandiPWA\CmsGraphQl\Model\Resolver\Page"/>
-    <preference for="Magento\Widget\Model\Template\FilterEmulate" type="ScandiPWA\CmsGraphQl\Model\Template\FilterEmulate"/>
+    <preference for="Magento\Widget\Model\Template\FilterEmulate" type="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilterEmulate"/>
 </config>
