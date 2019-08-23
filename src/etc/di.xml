@@ -3,7 +3,8 @@
     <virtualType name="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilterEmulate" type="ScandiPWA\CmsGraphQl\Model\Template\FilterEmulate">
         <arguments>
             <argument name="availableFilters" xsi:type="array">
-                <item name="TestWidget" xsi:type="string">Magento\Cms\Block\Widget\Page\Link</item>
+                <item name="Slider" xsi:type="string">Scandiweb\Slider\Block\Widget\Slider</item>
+                <item name="NewProducts" xsi:type="string">Magento\Catalog\Block\Product\Widget\NewWidget</item>
             </argument>
             <argument name="widgetParamsWhitelist" xsi:type="array">
                 <item name="type" xsi:type="string">type</item>
