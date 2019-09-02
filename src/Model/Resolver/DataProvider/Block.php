@@ -53,20 +53,20 @@ class Block extends \Magento\CmsGraphQl\Model\Resolver\DataProvider\Block
     {
         $block = $this->blockRepository->getById($blockIdentifier);
 
-        if (false === $block->isActive()) {
+        if (!$block->isActive()) {
             return [
+                BlockInterface::IDENTIFIER => $block->getIdentifier(),
                 'disabled' => true
             ];
         }
 
         $renderedContent = $this->widgetFilter->filter($block->getContent());
 
-        $blockData = [
+        return [
             BlockInterface::IDENTIFIER => $block->getIdentifier(),
             BlockInterface::TITLE => $block->getTitle(),
             BlockInterface::CONTENT => $renderedContent,
             'disabled' => false
         ];
-        return $blockData;
     }
 }
