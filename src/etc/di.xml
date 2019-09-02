@@ -5,10 +5,12 @@
             <argument name="availableFilters" xsi:type="array">
                 <item name="Slider" xsi:type="string">Scandiweb\Slider\Block\Widget\Slider</item>
                 <item name="NewProducts" xsi:type="string">Magento\Catalog\Block\Product\Widget\NewWidget</item>
+                <item name="CatalogProductList" xsi:type="string">Magento\CatalogWidget\Block\Product\ProductsList</item>
             </argument>
-            <argument name="widgetParamsWhitelist" xsi:type="array">
+            <argument name="widgetUnescapedParams" xsi:type="array">
                 <item name="type" xsi:type="string">type</item>
             </argument>
+            <argument name="widgetCustomParamsHandlers" xsi:type="array" />
         </arguments>
     </virtualType>
 

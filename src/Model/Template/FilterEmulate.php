@@ -39,7 +39,10 @@ class FilterEmulate extends \Magento\Widget\Model\Template\FilterEmulate
      *
      * @var string[]
      */
-    public $widgetParamsWhitelist;
+    protected $widgetParamsWhitelist;
+
+    protected $widgetCustomParamsHandlers;
+
     /**
      * Array of objects that will parsed to custom widget syntax
      *
@@ -64,12 +67,14 @@ class FilterEmulate extends \Magento\Widget\Model\Template\FilterEmulate
         \Magento\Widget\Model\ResourceModel\Widget $widgetResource,
         Widget $widget,
         array $availableFilters,
-        array $widgetParamsWhitelist
+        array $widgetUnescapedParams,
+        array $widgetCustomParamsHandlers
     )
     {
         parent::__construct($string, $logger, $escaper, $assetRepo, $scopeConfig, $coreVariableFactory, $storeManager, $layout, $layoutFactory, $appState, $urlModel, $emogrifier, $configVariables, $widgetResource, $widget);
         $this->availableFilters = $availableFilters;
-        $this->widgetParamsWhitelist = $widgetParamsWhitelist;
+        $this->widgetParamsWhitelist = $widgetUnescapedParams;
+        $this->widgetCustomParamsHandlers = $widgetCustomParamsHandlers;
     }
 
     /**
@@ -136,7 +141,9 @@ class FilterEmulate extends \Magento\Widget\Model\Template\FilterEmulate
 
         $paramsList = [];
         foreach ($params as $key => $value) {
-            if (!in_array($key, $this->widgetParamsWhitelist)) {
+            if (key_exists($key, $this->widgetCustomParamsHandlers)) {
+                $value = $this->widgetCustomParamsHandlers[$key]->resolve($value);
+            } else if (!in_array($key, $this->widgetParamsWhitelist)) {
                 $value = $this->_escaper->escapeHtmlAttr($value);
             }
 
