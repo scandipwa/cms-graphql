@@ -6,8 +6,5 @@ type Query {
 }
 
 type CmsBlock @doc(description: "CMS block defines all CMS block information") {
-    identifier: String @doc(description: "CMS block identifier")
-    title: String @doc(description: "CMS block title")
-    content: String @doc(description: "CMS block content")
     disabled: Boolean @doc(description: "CMS block is disabled")
 }
