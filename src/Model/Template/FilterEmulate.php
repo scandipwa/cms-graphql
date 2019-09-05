@@ -69,8 +69,7 @@ class FilterEmulate extends \Magento\Widget\Model\Template\FilterEmulate
         array $availableFilters,
         array $widgetUnescapedParams,
         array $widgetCustomParamsHandlers
-    )
-    {
+    ) {
         parent::__construct($string, $logger, $escaper, $assetRepo, $scopeConfig, $coreVariableFactory, $storeManager, $layout, $layoutFactory, $appState, $urlModel, $emogrifier, $configVariables, $widgetResource, $widget);
         $this->availableFilters = $availableFilters;
         $this->widgetParamsWhitelist = $widgetUnescapedParams;
@@ -143,7 +142,7 @@ class FilterEmulate extends \Magento\Widget\Model\Template\FilterEmulate
         foreach ($params as $key => $value) {
             if (key_exists($key, $this->widgetCustomParamsHandlers)) {
                 $value = $this->widgetCustomParamsHandlers[$key]->resolve($value);
-            } else if (!in_array($key, $this->widgetParamsWhitelist)) {
+            } elseif (!in_array($key, $this->widgetParamsWhitelist)) {
                 $value = $this->_escaper->escapeHtmlAttr($value);
             }
 

@@ -10,7 +10,9 @@
             <argument name="widgetUnescapedParams" xsi:type="array">
                 <item name="type" xsi:type="string">type</item>
             </argument>
-            <argument name="widgetCustomParamsHandlers" xsi:type="array" />
+            <argument name="widgetCustomParamsHandlers" xsi:type="array">
+                <item name="conditions_encoded" xsi:type="object">ScandiPWA\CmsGraphQl\Model\Resolver\Attribute\ConditionsEncoded</item>
+            </argument>
         </arguments>
     </virtualType>
 
