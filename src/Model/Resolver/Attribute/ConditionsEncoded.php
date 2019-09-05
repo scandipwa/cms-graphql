@@ -14,7 +14,6 @@ use ScandiPWA\CmsGraphQl\Api\AttributeHandlerInterface;
 
 class ConditionsEncoded implements AttributeHandlerInterface
 {
-
     public function resolve(string $value): string
     {
         return base64_encode($value);
