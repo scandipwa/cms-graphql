@@ -4,3 +4,7 @@ type Query {
         url_key: String @doc(description: "Url key of the CMS page")
     ): CmsPage @resolver(class: "Magento\\CmsGraphQl\\Model\\Resolver\\Page") @doc(description: "The CMS page query returns information about a CMS page")
 }
+
+type CmsPage @doc(description: "CMS page defines all CMS page information") {
+    page_width: String @doc(description: "CMS page width")
+}

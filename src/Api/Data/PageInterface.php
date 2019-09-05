@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Cms\Api\Data;
+namespace ScandiPWA\Cms\Api\Data;
 
 /**
  * CMS page interface.
