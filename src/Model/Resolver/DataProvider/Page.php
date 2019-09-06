@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Magento\CmsGraphQl\Model\Resolver\DataProvider;
+namespace ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider;
 
 use Magento\Cms\Api\Data\PageInterface;
 use Magento\Cms\Api\PageRepositoryInterface;
@@ -15,7 +15,7 @@ use Magento\Widget\Model\Template\FilterEmulate;
 /**
  * Cms page data provider
  */
-class Page
+class Page extends \Magento\CmsGraphQl\Model\Resolver\DataProvider\Page
 {
     /**
      * @var FilterEmulate

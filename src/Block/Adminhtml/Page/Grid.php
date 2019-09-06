@@ -81,10 +81,10 @@ class Grid extends Magento\Cms\Block\Adminhtml\Page\Grid
     protected function _prepareColumns()
     {
         $this->addColumn(
-            'page_layout',
+            'page_width',
             [
-                'header' => __('Layout'),
-                'index' => 'page_layout',
+                'header' => __('Width'),
+                'index' => 'page_width',
                 'type' => 'options',
                 'options' => ['default', 'full-screen']
             ]
