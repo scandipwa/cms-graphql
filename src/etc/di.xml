@@ -3,5 +3,4 @@
     <preference for="Magento\CmsGraphQl\Model\Resolver\Page" type="ScandiPWA\CmsGraphQl\Model\Resolver\Page"/>
     <preference for="Magento\CmsGraphQl\Model\Resolver\DataProvider\Page" type="ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider\Page"/>
     <preference for="Magento\Cms\Api\Data" type="ScandiPWA\CmsGraphQl\Api\Data"/>
-    <!-- <preference for="Magento\Cms\Block\Adminhtml\Page\Grid" type="ScandiPWA\CmsGraphQl\Block\Adminhtml\Page\Grid"/> -->
 </config>
