@@ -8,3 +8,7 @@ type Query {
 type CmsPage @doc(description: "CMS page defines all CMS page information") {
     page_width: String @doc(description: "CMS page width")
 }
+
+type CmsBlock @doc(description: "CMS block defines all CMS block information") {
+    disabled: Boolean @doc(description: "CMS block is disabled")
+}
