@@ -3,10 +3,26 @@
     <preference for="Magento\CmsGraphQl\Model\Resolver\Page" type="ScandiPWA\CmsGraphQl\Model\Resolver\Page"/>
     <preference for="Magento\CmsGraphQl\Model\Resolver\DataProvider\Page" type="ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider\Page"/>
     <preference for="Magento\Cms\Api\Data" type="ScandiPWA\CmsGraphQl\Api\Data"/>
+    <!-- <preference for="Magento\Cms\Model\Page\Source\PageWidth" type="ScandiPWA\CmsGraphQl\Model\Page\Source\PageWidth"/> -->
+    <!-- <virtualType name="PageWidth" type="Magento\Cms\Model\Source">
 
-    <virtualType name="Magento\Cms\Ui\Component\Form\Field\PageLayout" type="Magento\Ui\Component\Form\Field\DefaultValue">
+    </virtualType> -->
+
+<!--
+     <virtualType name="Magento\Cms\Ui\Component\Form\Field\PageLayout" type="Magento\Ui\Component\Form\Field\DefaultValue">
         <arguments>
             <argument name="path" xsi:type="string">web/default_layouts/default_cms_layout</argument>
         </arguments>
     </virtualType>
+-->
+<!--
+    <type name="Magento\Cms\Model\ResourceModel\Page\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cms_page</argument>
+            <argument name="eventPrefix" xsi:type="string">cms_page_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">page_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\Cms\Model\ResourceModel\Page</argument>
+        </arguments>
+    </type>
+-->
 </config>

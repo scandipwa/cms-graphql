@@ -3,35 +3,35 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Cms\Model\Page\Source;
+namespace ScandiPWA\CmsGraphQl\Model\Page\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;
-use Magento\Framework\View\Model\PageLayout\Config\BuilderInterface;
+use Magento\Framework\View\Model\PageWidth\Config\BuilderInterface;
 
 /**
- * Class PageLayout
+ * Class PageWidth
  */
-class PageLayout implements OptionSourceInterface
+class PageWidth implements OptionSourceInterface
 {
     /**
-     * @var \Magento\Framework\View\Model\PageLayout\Config\BuilderInterface
+     * @var \Magento\Framework\View\Model\PageWidth\Config\BuilderInterface
      */
-    protected $pageLayoutBuilder;
+    protected $pageWidthBuilder;
 
     /**
      * @var array
-     * @deprecated 103.0.1 since the cache is now handled by \Magento\Theme\Model\PageLayout\Config\Builder::$configFiles
+     * @deprecated 103.0.1 since the cache is now handled by \Magento\Theme\Model\PageWidth\Config\Builder::$configFiles
      */
     protected $options;
 
     /**
      * Constructor
      *
-     * @param BuilderInterface $pageLayoutBuilder
+     * @param BuilderInterface $pageWidthBuilder
      */
-    public function __construct(BuilderInterface $pageLayoutBuilder)
+    public function __construct(BuilderInterface $pageWidthBuilder)
     {
-        $this->pageLayoutBuilder = $pageLayoutBuilder;
+        $this->pageWidthBuilder = $pageWidthBuilder;
     }
 
     /**
@@ -39,7 +39,11 @@ class PageLayout implements OptionSourceInterface
      */
     public function toOptionArray()
     {
-        $configOptions = $this->pageLayoutBuilder->getPageLayoutsConfig()->getOptions();
+        // $configOptions = $this->pageWidthBuilder->getPageWidthsConfig()->getOptions();
+        $configOptions = [
+            'pizza' => '12',
+            'anotehr' => '1444'
+        ];
         $options = [];
         foreach ($configOptions as $key => $value) {
             $options[] = [
