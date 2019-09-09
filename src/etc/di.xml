@@ -18,4 +18,5 @@
 
     <preference for="Magento\CmsGraphQl\Model\Resolver\Page" type="ScandiPWA\CmsGraphQl\Model\Resolver\Page"/>
     <preference for="Magento\Widget\Model\Template\FilterEmulate" type="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilterEmulate"/>
+    <preference for="Magento\CmsGraphQl\Model\Resolver\DataProvider\Block" type="ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider\Block"/>
 </config>
