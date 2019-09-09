@@ -6,7 +6,7 @@
 namespace ScandiPWA\CmsGraphQl\Model\Page\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;
-use Magento\Framework\View\Model\PageWidth\Config\BuilderInterface;
+use Magento\Framework\View\Model\PageLayout\Config\BuilderInterface;
 
 /**
  * Class PageWidth
@@ -14,25 +14,10 @@ use Magento\Framework\View\Model\PageWidth\Config\BuilderInterface;
 class PageWidth implements OptionSourceInterface
 {
     /**
-     * @var \Magento\Framework\View\Model\PageWidth\Config\BuilderInterface
-     */
-    protected $pageWidthBuilder;
-
-    /**
      * @var array
      * @deprecated 103.0.1 since the cache is now handled by \Magento\Theme\Model\PageWidth\Config\Builder::$configFiles
      */
     protected $options;
-
-    /**
-     * Constructor
-     *
-     * @param BuilderInterface $pageWidthBuilder
-     */
-    public function __construct(BuilderInterface $pageWidthBuilder)
-    {
-        $this->pageWidthBuilder = $pageWidthBuilder;
-    }
 
     /**
      * @inheritdoc
@@ -41,10 +26,11 @@ class PageWidth implements OptionSourceInterface
     {
         // $configOptions = $this->pageWidthBuilder->getPageWidthsConfig()->getOptions();
         $configOptions = [
-            'pizza' => '12',
-            'anotehr' => '1444'
+            'default' => 'default',
+            'full' => 'full width'
         ];
         $options = [];
+
         foreach ($configOptions as $key => $value) {
             $options[] = [
                 'label' => $value,
