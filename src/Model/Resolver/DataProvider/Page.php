@@ -1,8 +1,12 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * ScandiPWA_CmsGraphQl
+ *
+ * @category    Scandiweb
+ * @package     ScandiPWA_CmsGraphQl
+ * @copyright   Copyright (c) 2018 Scandiweb, Ltd (https://scandiweb.com)
  */
+
 declare(strict_types=1);
 
 namespace ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider;
@@ -54,19 +58,13 @@ class Page extends \Magento\CmsGraphQl\Model\Resolver\DataProvider\Page
 
         $renderedContent = $this->widgetFilter->filter($page->getContent());
 
-        // if (!$page->getPageWidth()) {
-        //     $page->setPageWidth('default');
-        //     var_dump('4asd');
-        //     exit(1);
-        // }
-
         $pageData = [
             'url_key' => $page->getIdentifier(),
             PageInterface::TITLE => $page->getTitle(),
-            'page_width' => $page->getPageWidth() ?: 'default',
             PageInterface::CONTENT => $renderedContent,
             PageInterface::CONTENT_HEADING => $page->getContentHeading(),
             PageInterface::PAGE_LAYOUT => $page->getPageLayout(),
+            'page_width' => $page->getPageWidth() ?: 'default',
             PageInterface::META_TITLE => $page->getMetaTitle(),
             PageInterface::META_DESCRIPTION => $page->getMetaDescription(),
             PageInterface::META_KEYWORDS => $page->getMetaKeywords(),

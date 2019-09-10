@@ -1,8 +1,12 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * ScandiPWA_CmsGraphQl
+ *
+ * @category    Scandiweb
+ * @package     ScandiPWA_CmsGraphQl
+ * @copyright   Copyright (c) 2018 Scandiweb, Ltd (https://scandiweb.com)
  */
+
 namespace ScandiPWA\CmsGraphQl\Model\Page\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;
