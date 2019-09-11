@@ -30,7 +30,7 @@ use Psr\Log\LoggerInterface;
  * Class FilterEmulate
  * @package ScandiPWA\CmsGraphQl\Model\Template
  */
-class FilterEmulate extends \Magento\Widget\Model\Template\FilterEmulate
+class Filter extends \Magento\Widget\Model\Template\FilterEmulate
 {
 
     /**
