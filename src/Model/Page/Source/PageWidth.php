@@ -31,7 +31,7 @@ class PageWidth implements OptionSourceInterface
         // $configOptions = $this->pageWidthBuilder->getPageWidthsConfig()->getOptions();
         $configOptions = [
             'default' => 'default',
-            'full' => 'full width'
+            'full' => 'full'
         ];
         $options = [];
 
