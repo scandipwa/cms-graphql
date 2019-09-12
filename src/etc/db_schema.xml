@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ScandiPWA_CmsGraphQl
+ *
+ * @category    Scandiweb
+ * @package     ScandiPWA_CmsGraphQl
+ * @copyright   Copyright (c) 2018 Scandiweb, Ltd (https://scandiweb.com)
+ */
+-->
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="cms_page" resource="default" engine="innodb" comment="CMS Page Table">
+        <column xsi:type="varchar" name="page_width" nullable="false" default="default" length="255" comment="Page Width"/>
+    </table>
+</schema>

@@ -5,6 +5,10 @@ type Query {
     ): CmsPage @resolver(class: "Magento\\CmsGraphQl\\Model\\Resolver\\Page") @doc(description: "The CMS page query returns information about a CMS page")
 }
 
+type CmsPage @doc(description: "CMS page defines all CMS page information") {
+    page_width: String @doc(description: "CMS page width")
+}
+
 type CmsBlock @doc(description: "CMS block defines all CMS block information") {
     disabled: Boolean @doc(description: "CMS block is disabled")
 }
