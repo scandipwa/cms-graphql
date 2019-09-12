@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * ScandiPWA_CmsGraphQl
+ *
+ * @category    Scandiweb
+ * @package     ScandiPWA_CmsGraphQl
+ * @copyright   Copyright (c) 2018 Scandiweb, Ltd (https://scandiweb.com)
+ */
+-->
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="cms_page_columns">
+        <column name="page_width" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="ScandiPWA\CmsGraphQl\Model\Page\Source\PageWidth"/>
+                <filter>select</filter>
+                <editor>
+                    <editorType>select</editorType>
+                </editor>
+                <dataType>select</dataType>
+                <label translate="true">Width</label>
+                <visible>false</visible>
+            </settings>
+        </column>
+    </columns>
+</listing>
