@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-
-    <preference for="Magento\Widget\Model\Template\FilterEmulate" type="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilterEmulate"/>
-    <preference for="Magento\CmsGraphQl\Model\Resolver\DataProvider\Block" type="ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider\Block"/>
     <preference for="Magento\CmsGraphQl\Model\Resolver\Page" type="ScandiPWA\CmsGraphQl\Model\Resolver\Page"/>
+    <preference for="Magento\Widget\Model\Template\Filter" type="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilter"/>
+    <preference for="Magento\Widget\Model\Template\FilterEmulate" type="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilter"/>
     <preference for="Magento\CmsGraphQl\Model\Resolver\DataProvider\Page" type="ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider\Page"/>
+    <preference for="Magento\CmsGraphQl\Model\Resolver\DataProvider\Block" type="ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider\Block"/>
 
-    <virtualType name="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilterEmulate" type="ScandiPWA\CmsGraphQl\Model\Template\FilterEmulate">
+    <virtualType name="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilter" type="ScandiPWA\CmsGraphQl\Model\Template\Filter">
         <arguments>
             <argument name="availableFilters" xsi:type="array">
                 <item name="Slider" xsi:type="string">Scandiweb\Slider\Block\Widget\Slider</item>
