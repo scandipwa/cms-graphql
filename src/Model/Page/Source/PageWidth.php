@@ -19,7 +19,6 @@ class PageWidth implements OptionSourceInterface
 {
     /**
      * @var array
-     * @deprecated 103.0.1 since the cache is now handled by \Magento\Theme\Model\PageWidth\Config\Builder::$configFiles
      */
     protected $options;
 
@@ -28,7 +27,6 @@ class PageWidth implements OptionSourceInterface
      */
     public function toOptionArray()
     {
-        // $configOptions = $this->pageWidthBuilder->getPageWidthsConfig()->getOptions();
         $configOptions = [
             'default' => 'default',
             'full' => 'full'
