@@ -12,6 +12,6 @@
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
     <table name="cms_page" resource="default" engine="innodb" comment="CMS Page Table">
-        <column xsi:type="varchar" name="page_width" nullable="false" default="default" length="255" comment="Page Width"/>
+        <column xsi:type="varchar" name="page_width" nullable="false" default="default" length="10" comment="Page Width"/>
     </table>
 </schema>
