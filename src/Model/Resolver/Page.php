@@ -7,7 +7,9 @@
  * @author    Kriss Andrejevs <info@scandiweb.com>
  * @copyright Copyright (c) 2018 Scandiweb, Ltd (https://scandiweb.com)
  */
+
 namespace ScandiPWA\CmsGraphQl\Model\Resolver;
+
 use Magento\CmsGraphQl\Model\Resolver\DataProvider\Page as PageDataProvider;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\GraphQl\Config\Element\Field;
@@ -18,6 +20,7 @@ use Magento\Framework\GraphQl\Query\Resolver\ValueFactory;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
 use Magento\Cms\Model\PageFactory;
 use Magento\Store\Model\StoreManagerInterface;
+
 /**
  * Class Page
  * @package ScandiPWA\CmsGraphQl\Model\Resolver
@@ -40,6 +43,7 @@ class Page extends \Magento\CmsGraphQl\Model\Resolver\Page
      * @var StoreManagerInterface
      */
     private $storeManager;
+
     /**
      * @param PageDataProvider $pageDataProvider
      * @param ValueFactory $valueFactory
@@ -58,6 +62,7 @@ class Page extends \Magento\CmsGraphQl\Model\Resolver\Page
         $this->pageFactory = $pageFactory;
         $this->storeManager = $storeManager;
     }
+
     /**
      * @inheritdoc
      */
@@ -67,14 +72,17 @@ class Page extends \Magento\CmsGraphQl\Model\Resolver\Page
         ResolveInfo $info,
         array $value = null,
         array $args = null
-    ) : Value {
+    ): Value {
         $result = function () use ($args) {
             $pageId = $this->getPageId($args);
             $pageData = $this->getPageData($pageId);
+
             return $pageData;
         };
+
         return $this->valueFactory->create($result);
     }
+
     /**
      * @param array $args
      * @return int
@@ -87,10 +95,15 @@ class Page extends \Magento\CmsGraphQl\Model\Resolver\Page
             return (int)$args['id'];
         }
         if (isset($args['url_key'])) {
-            return (int)$this->pageFactory->create()->setStoreId($storeId)->load($args['url_key'])->setStoreId($storeId)->getId();
+            return (int)$this->pageFactory->create()
+                ->setStoreId($storeId)
+                ->load($args['url_key'])
+                ->setStoreId($storeId)
+                ->getId();
         }
         throw new GraphQlInputException(__('Page id should be specified'));
     }
+
     /**
      * @param int $pageId
      * @return array
@@ -103,6 +116,7 @@ class Page extends \Magento\CmsGraphQl\Model\Resolver\Page
         } catch (NoSuchEntityException $e) {
             throw new GraphQlNoSuchEntityException(__($e->getMessage()), $e);
         }
+
         return $pageData;
     }
 }
