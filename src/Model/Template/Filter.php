@@ -22,6 +22,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\Variable\Model\Source\Variables;
 use Magento\Variable\Model\VariableFactory;
 use Magento\Widget\Block\BlockInterface;
+use Magento\Widget\Model\Template\FilterEmulate;
 use Magento\Widget\Model\Widget;
 use Pelago\Emogrifier;
 use Psr\Log\LoggerInterface;
@@ -30,7 +31,7 @@ use Psr\Log\LoggerInterface;
  * Class FilterEmulate
  * @package ScandiPWA\CmsGraphQl\Model\Template
  */
-class Filter extends \Magento\Widget\Model\Template\FilterEmulate
+class Filter extends FilterEmulate
 {
 
     /**

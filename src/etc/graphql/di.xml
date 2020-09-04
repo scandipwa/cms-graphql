@@ -1,4 +1,15 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @link https://github.com/scandipwa/quote-graphql
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Magento\Widget\Model\Template\Filter" type="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilter"/>
     <preference for="Magento\Widget\Model\Template\FilterEmulate" type="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilter"/>

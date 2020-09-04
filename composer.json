@@ -1,26 +1,17 @@
 {
     "name": "scandipwa/cms-graphql",
     "description": "ScandiPWA Graphql extension for CMS page",
-    "keywords": [
-        "magento2",
-        "scandipwa",
-        "pwa"
-    ],
     "type": "magento2-module",
     "license": [
         "OSL-3.0"
     ],
-    "support": {
-        "email": "info@scandiweb.com"
-    },
-    "authors": [
-        {
-            "name": "Yefim Butrameev",
-            "email": "yefim.butrameev@scandiweb.com"
-        }
-    ],
     "require": {
-        "magento/module-cms-graph-ql": "*"
+        "magento/framework": "*",
+        "magento/module-store": "*",
+        "magento/module-variable": "*",
+        "magento/module-widget": "*",
+        "magento/module-cms": "*",
+        "magento/module-cms-graph-ql": "^100.3"
     },
     "autoload": {
         "files": [

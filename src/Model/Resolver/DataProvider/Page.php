@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider;
 
+use Magento\CmsGraphQl\Model\Resolver\DataProvider\Page as CorePage;
 use Magento\Framework\Exception\LocalizedException;
 use ScandiPWA\CmsGraphQl\Api\Data\PageInterface;
 use Magento\Cms\Api\Data\PageInterface as OriginalPageInterface;
@@ -22,7 +23,7 @@ use Magento\Widget\Model\Template\FilterEmulate;
 /**
  * Cms page data provider
  */
-class Page extends \Magento\CmsGraphQl\Model\Resolver\DataProvider\Page
+class Page extends CorePage
 {
     /**
      * @var GetPageByIdentifierInterface

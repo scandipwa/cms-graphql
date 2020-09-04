@@ -11,6 +11,7 @@ namespace ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider;
 
 use Magento\Cms\Api\BlockRepositoryInterface;
 use Magento\Cms\Api\Data\BlockInterface;
+use Magento\CmsGraphQl\Model\Resolver\DataProvider\Block as CoreBlock;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Widget\Model\Template\FilterEmulate;
 
@@ -18,7 +19,7 @@ use Magento\Widget\Model\Template\FilterEmulate;
  * Class Block
  * @package ScandiPWA\CmsGraphQl\Model\Resolver\DataProvider
  */
-class Block extends \Magento\CmsGraphQl\Model\Resolver\DataProvider\Block
+class Block extends CoreBlock
 {
     /**
      * @var BlockRepositoryInterface

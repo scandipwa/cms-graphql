@@ -10,7 +10,6 @@
 namespace ScandiPWA\CmsGraphQl\Model\Page\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;
-use Magento\Framework\View\Model\PageLayout\Config\BuilderInterface;
 
 /**
  * Class PageWidth
