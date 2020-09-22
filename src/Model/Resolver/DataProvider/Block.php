@@ -13,6 +13,7 @@ use Magento\Cms\Api\BlockRepositoryInterface;
 use Magento\Cms\Api\Data\BlockInterface;
 use Magento\CmsGraphQl\Model\Resolver\DataProvider\Block as CoreBlock;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Widget\Model\Template\FilterEmulate;
 
 /**
@@ -32,15 +33,24 @@ class Block extends CoreBlock
     private $widgetFilter;
 
     /**
+     * @var SearchCriteriaBuilder
+     */
+    private $searchCriteriaBuilder;
+
+    /**
      * @param BlockRepositoryInterface $blockRepository
      * @param FilterEmulate $widgetFilter
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
      */
     public function __construct(
         BlockRepositoryInterface $blockRepository,
-        FilterEmulate $widgetFilter
+        FilterEmulate $widgetFilter,
+        SearchCriteriaBuilder $searchCriteriaBuilder
     ) {
         $this->blockRepository = $blockRepository;
         $this->widgetFilter = $widgetFilter;
+        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+        parent::__construct($blockRepository, $widgetFilter, $searchCriteriaBuilder);
     }
 
     /**
