@@ -21,6 +21,7 @@
                 <item name="Slider" xsi:type="string">Scandiweb\Slider\Block\Widget\Slider</item>
                 <item name="NewProducts" xsi:type="string">Magento\Catalog\Block\Product\Widget\NewWidget</item>
                 <item name="CatalogProductList" xsi:type="string">Magento\CatalogWidget\Block\Product\ProductsList</item>
+                <item name="RecentlyViewed" xsi:type="string">Magento\Catalog\Block\Widget\RecentlyViewed</item>
             </argument>
             <argument name="widgetUnescapedParams" xsi:type="array">
                 <item name="type" xsi:type="string">type</item>
