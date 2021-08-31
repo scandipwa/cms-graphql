@@ -10,9 +10,13 @@
 
 namespace ScandiPWA\CmsGraphQl\Model\Template;
 
+use Magento\Email\Model\Template\Css;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\State;
+use Magento\Framework\Css\PreProcessor\Adapter\CssInliner;
 use Magento\Framework\Escaper;
+use Magento\Framework\Filesystem;
+use Magento\Framework\Filter\VariableResolverInterface;
 use Magento\Framework\Stdlib\StringUtils;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Asset\Repository;
@@ -24,7 +28,6 @@ use Magento\Variable\Model\VariableFactory;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Widget\Model\Template\FilterEmulate;
 use Magento\Widget\Model\Widget;
-use Pelago\Emogrifier;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -63,15 +66,42 @@ class Filter extends FilterEmulate
         LayoutFactory $layoutFactory,
         State $appState,
         UrlInterface $urlModel,
-        Emogrifier $emogrifier,
         Variables $configVariables,
+        VariableResolverInterface $variableResolver,
+        Css\Processor $cssProcessor,
+        Filesystem $pubDirectory,
+        CssInliner $cssInliner,
         \Magento\Widget\Model\ResourceModel\Widget $widgetResource,
         Widget $widget,
+        $variables = [],
+        array $directiveProcessors = [],
         array $availableFilters,
         array $widgetUnescapedParams,
         array $widgetCustomParamsHandlers
     ) {
-        parent::__construct($string, $logger, $escaper, $assetRepo, $scopeConfig, $coreVariableFactory, $storeManager, $layout, $layoutFactory, $appState, $urlModel, $emogrifier, $configVariables, $widgetResource, $widget);
+        parent::__construct(
+            $string,
+            $logger, 
+            $escaper, 
+            $assetRepo, 
+            $scopeConfig, 
+            $coreVariableFactory, 
+            $storeManager, 
+            $layout, 
+            $layoutFactory, 
+            $appState, 
+            $urlModel, 
+            $configVariables, 
+            $variableResolver, 
+            $cssProcessor, 
+            $pubDirectory, 
+            $cssInliner, 
+            $widgetResource, 
+            $widget, 
+            $variables ?? [], 
+            $directiveProcessors
+        );
+
         $this->availableFilters = $availableFilters;
         $this->widgetParamsWhitelist = $widgetUnescapedParams;
         $this->widgetCustomParamsHandlers = $widgetCustomParamsHandlers;
