@@ -17,6 +17,7 @@
 
     <virtualType name="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilter" type="ScandiPWA\CmsGraphQl\Model\Template\Filter">
         <arguments>
+            <argument name="variables" xsi:type="array" />
             <argument name="availableFilters" xsi:type="array">
                 <item name="Slider" xsi:type="string">Scandiweb\Slider\Block\Widget\Slider</item>
                 <item name="NewProducts" xsi:type="string">Magento\Catalog\Block\Product\Widget\NewWidget</item>
