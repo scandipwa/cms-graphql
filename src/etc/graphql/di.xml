@@ -32,4 +32,13 @@
             </argument>
         </arguments>
     </virtualType>
+
+    <type name="Magento\GraphQl\Controller\GraphQl">
+        <plugin name="graphql_init_translations"
+                type="ScandiPWA\CmsGraphQl\Plugin\InitGraphQlTranslations"/>
+    </type>
+    <type name="ScandiPWA\PersistedQuery\Plugin\PersistedQuery">
+        <plugin name="graphql_init_translations"
+                type="ScandiPWA\CmsGraphQl\Plugin\InitGraphQlTranslations"/>
+    </type>
 </config>
