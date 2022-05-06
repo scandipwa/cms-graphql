@@ -73,11 +73,11 @@ class Filter extends FilterEmulate
         CssInliner $cssInliner,
         \Magento\Widget\Model\ResourceModel\Widget $widgetResource,
         Widget $widget,
+        $variables,
+        array $directiveProcessors,
         array $availableFilters,
         array $widgetUnescapedParams,
-        array $widgetCustomParamsHandlers,
-        $variables = [],
-        array $directiveProcessors = []
+        array $widgetCustomParamsHandlers
     ) {
         parent::__construct(
             $string,
@@ -99,7 +99,7 @@ class Filter extends FilterEmulate
             $widgetResource,
             $widget,
             $variables ?? [],
-            $directiveProcessors
+            $directiveProcessors ?? []
         );
 
         $this->availableFilters = $availableFilters;
