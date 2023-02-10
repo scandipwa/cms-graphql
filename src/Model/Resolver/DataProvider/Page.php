@@ -89,7 +89,7 @@ class Page extends CorePage
      * @return array
      * @throws NoSuchEntityException
      */
-    private function convertPageData(OriginalPageInterface $page)
+    public function convertPageData(OriginalPageInterface $page)
     {
         if (false === $page->isActive()) {
             throw new NoSuchEntityException();
